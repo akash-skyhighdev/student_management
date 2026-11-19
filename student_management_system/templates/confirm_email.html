@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Confirm your email{% endblock %}
+{% block content %}
+<div class="panel login">
+  <h1>Confirm your email</h1>
+  <p class="sub">We sent an email to <strong>{{ email }}</strong> from Amazon Web Services. Open it and click <strong>Confirm subscription</strong>. Then come back here.</p>
+  <form method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <button class="btn" type="submit" name="action" value="check">I have confirmed, continue</button>
+  </form>
+  <form method="post" style="margin-top:12px">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <button class="btn ghost" type="submit" name="action" value="resend" style="width:100%">Send the email again</button>
+  </form>
+  <p class="sub" style="margin:18px 0 0">Cannot find it? Check your spam folder.</p>
+</div>
+{% endblock %}
