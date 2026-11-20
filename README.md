@@ -1,5 +1,13 @@
 # student_management
-A student portal secured within a VPC across public and private subnets, powered by EC2, featuring IAM authentication, RDS database, and Amazon S3 for file storage."
+A secure, multi-tier AWS student portal built with Flask and Gunicorn. The application runs on EC2 private subnets behind an Application Load Balancer, with MySQL on RDS, private S3 document storage, and SNS registration notifications.
+
+## Features
+
+- Student and administrator authentication
+- Student profile and document management
+- Private file uploads to Amazon S3
+- Registration notifications through Amazon SNS
+- Keyless EC2 administration through AWS Systems Manager Session Manager
 
 ## 🏗️ AWS Network & Security Architecture
 
