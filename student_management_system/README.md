@@ -11,7 +11,6 @@ Documents are stored in a **private S3 bucket**. Their details (title, filename,
 
 ![AWS network architecture](docs/architecture.png)
 
-The same diagram as text, which GitHub draws for you:
 
 ```mermaid
 flowchart TB
@@ -25,7 +24,7 @@ flowchart TB
             nat["NAT Gateway<br/>outbound only"]
         end
         subgraph PRIVATE["Private subnets"]
-            ec2["EC2 Auto Scaling group<br/>Flask + gunicorn on port 8000"]
+            ec2["EC2 Auto Scaling group<br/>Flask + gunicorn on port 5000"]
             rds[("RDS MySQL<br/>port 3306")]
             vpce["S3 Gateway Endpoint"]
         end
@@ -50,7 +49,7 @@ Who can reach what:
 | Resource | Where it lives | Who can reach it |
 |---|---|---|
 | Load Balancer | Public subnets | The internet, ports 80 and 443 |
-| EC2 app servers | Private subnets, no public IP | Only the Load Balancer, port 8000 |
+| EC2 app servers | Private subnets, no public IP | Only the Load Balancer, port 5000 |
 | RDS MySQL | Private subnets, not publicly accessible | Only the EC2 security group, port 3306 |
 | S3 bucket | Private bucket, public access blocked | EC2 through the S3 VPC endpoint. Student documents are denied from anywhere else |
 | SNS | AWS managed service | EC2 through the NAT Gateway (outbound only) |
