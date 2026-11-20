@@ -9,6 +9,8 @@ A secure, multi-tier AWS student portal built with Flask and Gunicorn. The appli
 - Registration notifications through Amazon SNS
 - Keyless EC2 administration through AWS Systems Manager Session Manager
 
+**Note:** This README provides a high-level overview. For comprehensive documentation, including local setup and deployment steps, please check the `README.md` file inside the `student_management_system` folder.
+
 ## 🏗️ AWS Network & Security Architecture
 
 <div align="center">
